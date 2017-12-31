@@ -1,0 +1,42 @@
+<!--
+  Generated template for the DetailsPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Détails de {{movie.title}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col col-6><img width="100%" src="{{movie.img_url}}"></ion-col>
+      <ion-col><h1>{{movie.title}}</h1></ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-note item-start>
+      Date de sortie
+  </ion-note>
+
+  <p>{{movie.release_date}}</p>
+
+  <ion-note item-start>
+      Résumé
+  </ion-note>
+  
+  <p>{{movie.overview}}</p>
+
+  <a button href="https://www.themoviedb.org/movie/{{movie.id}}" clear item-right>Voir sur TMDb</a>
+
+  
+    
+
+</ion-content>

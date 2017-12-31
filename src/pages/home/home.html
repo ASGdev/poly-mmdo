@@ -1,14 +1,24 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Ionic Blank
+      Chercher un film
     </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+  <ion-searchbar
+    [(ngModel)]="search_input"
+    (ionInput)="onSearchInput()"
+    (ionCancel)="onCancel($event)">
+  </ion-searchbar>
+
+  <ion-list *ngIf="is_search_text">
+      <button ion-item detail-push *ngFor="let item of (search_results | async)" (click)="showDetails(item)" [navPush]="detailsPage" [navParams]="{ movie: item }">
+        <ion-thumbnail item-start>
+            <img src="{{item.img_url}}">
+        </ion-thumbnail>
+        <b>{{item.title}}</b>
+      </button>
+  </ion-list>
 </ion-content>
